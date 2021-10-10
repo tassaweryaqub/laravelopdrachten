@@ -4,7 +4,7 @@
 
 <div class="space-x-4 ">
 
-<div class="flex justify-between ">
+<div class="mt-6 ml-5  flex flex-col justify-center ">
         <tbody class="bg-white divide-y divide-gray-200">
             @foreach ( $projects as $project)
             <tr>
