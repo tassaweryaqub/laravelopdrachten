@@ -17,7 +17,7 @@ class ProjectSeeder extends Seeder
     {
         //
         Project::factory()
-        ->times(3)
+        ->times(7)
         ->create(); 
     
     }

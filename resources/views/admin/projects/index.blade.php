@@ -2,43 +2,69 @@
 
 @section('content')
 
-<div class="space-x-4 ">
 
-<div class="mt-6 ml-5  flex flex-col justify-center ">
-        <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ( $projects as $project)
+
+<!-- Table uit Tailwind Component -->
+<div class="flex flex-col">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
             <tr>
-                <div class="inline-block ">  
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {{ $project->id }}
-                </td>
-                </div>
-                
-                <div class="inline-block "> 
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {{ $project->name }}
-                </td>
-                </div>
-
-                <div class="inline-block "> 
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Details
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Edit 
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Delete
-                </td>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Name
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                ID
+              </th>
+             
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
             </tr>
-            </div>
+          </thead>
+
+          <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ( $projects as $project)
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                          Id
+                    </div>
+                    <div class="text-sm text-gray-500">
+                     {{ $project->id }}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Naam</div>
+                <div class="text-sm text-gray-500">  {{ $project->name }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Show
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                Edit
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+              </td>
+            </tr>
+
 
             @endforeach
-        </tbody>
-
-    </div> 
-
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
     @endsection
