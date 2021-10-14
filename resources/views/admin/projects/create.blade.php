@@ -1,36 +1,38 @@
 @extends('layouts.layout')
 
 <div>
-@if ($errors->any())
-    <div class="bg-red-200 text-red-900 rounded-lg shadow-md p-6 pr-10 mb-8">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+    @if ($errors->any())
+        <div class="bg-red-200 text-red-900 rounded-lg shadow-md p-6 pr-10 mb-8">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     </div>
-@endif
-</div>
+
 
 @section('content')
-
 <div class="flex flex-wrap -mx-3 mb-6 ml-5 mt-5">
-<form id="form"  class="w-full max-w-lg" action="{{ route('categories.store') }}" method="POST">
+<form id="form"  class="w-full max-w-lg" action="{{ route('projects.store') }}" method="POST">
     @csrf 
 
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
           First Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('name') border-red-500 @enderror"
-           name="name" id="name" value="{{ old('name') }}"  type="text" placeholder="Samia" required >
-        {{-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> --}}
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('name')
+      border-red-500 @enderror"
+             name="name" id="name"  type="text"  value="{{ old('description') }}" placeholder="Jane" required >
+
       </div>
       <div class="w-full md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-          Last Name
+          Description
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="lastname" id="lastname"  type="text" placeholder="Jane" required  >
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 @error('description')
+        border-red-500 @enderror" name="description" id="description"  type="text"  value="{{ old('description') }}"placeholder="Jane" required  >
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-2">

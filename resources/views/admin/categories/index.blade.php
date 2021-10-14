@@ -1,8 +1,13 @@
 @extends('layouts.layout')
 
+@if (session('status'))
+<div class="bg-green-200 text-green-900 rounded-lg shadow-md p-6 pr-10 mb-8 ">
+  {{ session('status') }}
+</div>
+  
+@endif
+
 @section('content')
-
-
 
 <!-- Table uit Tailwind Component -->
 <div class="flex flex-col">
@@ -57,7 +62,7 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  Show
+           
                   <a href="{{ route('categories.show', ['category'=> $category->id ]) }}">Show</a>
                 </span>
               </td>

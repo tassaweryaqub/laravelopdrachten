@@ -22,6 +22,11 @@
                 Status
               </th>
             </tr>
+
+            <button class=" float-right mr-6 btn bg-green-500 hover:bg-green-400 text-white">
+              <a href="{{ route('projects.create')  }}">Create</a>
+            </button>
+
           </thead>
 
           <tbody class="bg-white divide-y divide-gray-200">
@@ -45,7 +50,8 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  Show
+                  <a href="{{ route('projects.show', ['project'=> $project->id ]) }}">Show</a>   
+                
                 </span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
