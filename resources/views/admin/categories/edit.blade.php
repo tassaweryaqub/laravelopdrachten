@@ -15,7 +15,8 @@
 @section('content')
 
 <div class="flex flex-wrap -mx-3 mb-6 ml-5 mt-5">
-<form id="form"  class="w-full max-w-lg" action="{{ route('categories.store') }}" method="POST">
+<form id="form"  class="w-full max-w-lg" action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST">
+    @method( 'PUT' )  
     @csrf 
 
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -23,7 +24,7 @@
           First Name
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('name') border-red-500 @enderror"
-           name="name" id="name" value="{{ old('name') }}"  type="text" placeholder="Samia" required >
+           name="name" id="name" value="{{ old('name', $category->name) }}"  type="text" placeholder="Samia" required >
         {{-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> --}}
       </div>
       <div class="w-full md:w-1/2 px-3">
@@ -65,6 +66,7 @@
  
 
   </form>
+
 
 
 @endsection

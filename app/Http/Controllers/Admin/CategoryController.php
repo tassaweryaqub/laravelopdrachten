@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -73,6 +74,9 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+        return  view('admin.categories.edit', compact('category')); 
+
+
     }
 
     /**
@@ -82,9 +86,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryUpdateRequest $request, Category $category)
     {
         //
+        $category->name = $request->name; 
+        $category->lastname = $request->lastname; 
+        $category->save(); 
+
+        return redirect()->route('categories.index')->with('status', 'Category Aangemaakt');
     }
 
     /**
