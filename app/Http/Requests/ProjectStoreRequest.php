@@ -26,7 +26,7 @@ class ProjectStoreRequest extends FormRequest
         return [
             //
             'name' => 'required |string|unique:projects|min:5|max:45',
-            'description' => 'required '
+            'description' => 'required|unique:projects'
 
         ];
     }

@@ -96,6 +96,16 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('status', 'Category Aangemaakt');
     }
 
+    /** 
+     * delete route methode 
+     * 
+     */
+
+     public function delete( Category $category)
+     {
+            return view('admin.categories.delete', compact('category')); 
+     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -105,5 +115,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->delete(); 
+        return redirect()->route('categories.index')->with('status', 'Categorie verwijderd'); 
+
     }
 }

@@ -9,7 +9,9 @@
       <div class="p-5">
         <h1 class="text-2xl font-bold">Categorie details: </h1><br>
         <h1 class="text-1xl font-bold">Categorie name: </h1><br>
-        <p class="mt-2 text-md font-semibold text-gray-600"> {{ $category->name }}</p>
+        <p class="mt-2 text-md font-semibold text-gray-600"> {{ $category->name }}</p><br>
+        <h1 class="text-1xl font-bold">Categorie lastname: </h1><br>
+        <p class="mt-2 text-md font-semibold text-gray-600"> {{ $category->lastname }}</p>
 
       </div>
     </div>

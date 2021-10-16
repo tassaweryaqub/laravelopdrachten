@@ -15,7 +15,8 @@
 @section('content')
 
 <div class="flex flex-wrap -mx-3 mb-6 ml-5 mt-5">
-<form id="form"  class="w-full max-w-lg" action="{{ route('categories.store') }}" method="POST">
+<form id="form"  class="w-full max-w-lg" action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="POST">
+    @method( 'DELETE' )  
     @csrf 
 
       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -23,14 +24,13 @@
           First Name
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('name') border-red-500 @enderror"
-           name="name" id="name" value="{{ old('name') }}"  type="text" placeholder="Samia" required >
-        {{-- <p class="text-red-500 text-xs italic">Please fill out this field.</p> --}}
+           name="name" id="name" value="{{ old('name', $category->name) }}"  type="text" placeholder="Samia" disabled >
       </div>
       <div class="w-full md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
           Last Name
         </label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 @error('lastname') border-red-500 @enderror" name="lastname" id="lastname"  type="text" placeholder="Jane" required  >
+        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 @error('lastname') border-red-500 @enderror"  value="{{ old('lastname', $category->lastname) }}"name="lastname" id="lastname"  type="text" placeholder="Jane" disabled  >
       </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-2">
@@ -57,14 +57,15 @@
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210">
       </div>
 
-      <button id="submit" class="mt-24 ml-5 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" >
-        Submit
+      <button id="submit" class="mt-24 ml-5 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" >
+        Delete
        </button>
     </div>
  
  
 
   </form>
+
 
 
 @endsection

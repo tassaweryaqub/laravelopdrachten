@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
     {
         //
         Category::factory()
-        ->times(3)
+        ->times(6)
         ->create(); 
     }
 }

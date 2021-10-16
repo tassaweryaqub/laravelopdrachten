@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('admin/categories/{category}/delete', [CategoryController::class, 'delete'])
+->name ('categories.delete'); 
+
+
 Route::resource('/admin/categories', CategoryController::class); 
 Route::resource('/admin/projects', ProjectController::class); 
 
