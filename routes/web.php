@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProjectController; 
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,16 @@ Route::get('/', function () {
 Route::get('admin/categories/{category}/delete', [CategoryController::class, 'delete'])
 ->name ('categories.delete'); 
 
+Route::get('admin/projects/{project}/delete', [ProjectController::class, 'delete'])
+->name ('projects.delete'); 
 
 Route::resource('/admin/categories', CategoryController::class); 
 Route::resource('/admin/projects', ProjectController::class); 
 
+Route::get('/dashboard', function() {
+    return view ('dashboard'); 
+
+})->middleware(['auth'])->name('dashboard'); 
+
+
+require __DIR__.'/auth.php'; 

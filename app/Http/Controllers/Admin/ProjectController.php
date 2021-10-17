@@ -97,6 +97,15 @@ class ProjectController extends Controller
     }
 
     /**
+     * project destroy methode 
+     */
+
+     public function delete( Project $project)
+     {
+        return view('admin.projects.delete', compact('project')); 
+     }   
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Project  $project
@@ -105,5 +114,8 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+        $project->delete(); 
+        return redirect()->route('projects.index')->with('status', 'Project verwijderd !'); 
+
     }
 }
