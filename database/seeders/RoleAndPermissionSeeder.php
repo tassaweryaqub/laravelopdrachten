@@ -29,12 +29,15 @@ class RoleAndPermissionSeeder extends Seeder
 
         // roles student 
 
-        $student = Role::create(['name' => 'student']);
+        $student = Role::create(['name' => 'student'])
+        ->givePermissionTo(['index project','show project','create project','edit project' ]); 
  
 
         // roles teacher
 
-        $teacher = Role::create(['name' => 'teacher']);
+        $teacher = Role::create(['name' => 'teacher'])
+        ->givePermissionTo(['index project','show project','create project','edit project','delete project' ]); 
+
 
 
         // admin role 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController; 
 use Illuminate\Support\Facades\Route;
 
@@ -17,18 +18,36 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get( '/', [ProjectController::class,'index' ]); 
+
+
+
+    Route::get('admin/categories/{category}/delete', [CategoryController::class, 'delete'])
+    ->name ('categories.delete'); 
+
+//middle ware wrappen around the project controller met permissies voor teacher en admin om te verwijderen
+Route ::group(['middleware' => ['role:|teacher|admin']], function(){
+    Route::get('admin/projects/{project}/delete', [ProjectController::class, 'delete'])
+    ->name ('projects.delete'); 
+
+    Route::get('admin/products/{product}/delete', [ProductController::class, 'delete'])
+->name ('products.delete'); 
+
+Route::resource('/admin/products', ProductController::class); 
+
 });
 
-Route::get('admin/categories/{category}/delete', [CategoryController::class, 'delete'])
-->name ('categories.delete'); 
 
-Route::get('admin/projects/{project}/delete', [ProjectController::class, 'delete'])
-->name ('projects.delete'); 
+
+
+
+Route::resource('/admin/projects', ProjectController::class); 
 
 Route::resource('/admin/categories', CategoryController::class); 
-Route::resource('/admin/projects', ProjectController::class); 
 
 Route::get('/dashboard', function() {
     return view ('dashboard'); 

@@ -16,13 +16,13 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             /* foreign id naar user tabel , nullable want het is optioneel*/ 
-            $table->foreignId('user_id')->nullable()->constrained()
+            $table->foreignId('user_id')->constrained('users')
             ->onUpdate('no action')->onDelete('no action'); 
             /* foreign id naar project tabel , cascade want het mag verwijderd worden */ 
-            $table->foreignId('project_id')->constrained()
+            $table->foreignId('project_id')->constrained('projects')
             ->onUpdate('cascade')->onDelete('cascade'); 
             /* foreign id naar activity tabel met restrict want het mag niet zo zijn dat een activiteit verwijderd kan worden als het nog een taak heeft */
-            $table->foreignId('activity_id')->constrained()
+            $table->foreignId('activity_id')->constrained('activities')
             ->onUpdate('restrict')->onDelete('restrict'); 
             
             $table->char('task', 200); 

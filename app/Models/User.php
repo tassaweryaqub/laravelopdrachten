@@ -13,6 +13,12 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     use hasRoles; 
 
+    /* een user kan een of meerdere taken hebben */ 
+    public function task()
+    {
+        return $this->hasMany(Task::class); 
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,9 +49,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-/* een user kan een of meerdere taken hebben */ 
-    public function task()
-    {
-        return $this->hasMany(Task::class); 
-    }
+
 }
