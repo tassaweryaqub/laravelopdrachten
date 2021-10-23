@@ -12,15 +12,15 @@ class ProjectController extends Controller
 {
     /** Permissies voor de category controller */
 
-    public function __construct()
-    {
-        $this->middleware('auth'); 
-        $this->middleware('permission:index project', ['only' => ['index']]); 
-        $this->middleware('permission:show project', ['only' => ['show']]);
-        $this->middleware('permission:create project', ['only' => ['create', 'store']]);  
-        $this->middleware('permission:edit project', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:delete project', ['only' => ['delete', 'destroy']]);  
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth'); 
+    //     $this->middleware('permission:index project', ['only' => ['index']]); 
+    //     $this->middleware('permission:show project', ['only' => ['show']]);
+    //     $this->middleware('permission:create project', ['only' => ['create', 'store']]);  
+    //     $this->middleware('permission:edit project', ['only' => ['edit', 'update']]);
+    //     $this->middleware('permission:delete project', ['only' => ['delete', 'destroy']]);  
+    // }
 
 
     /**
