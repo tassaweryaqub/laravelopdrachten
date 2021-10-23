@@ -17,7 +17,8 @@ class TaskSeeder extends Seeder
         //
 
         Task::factory()
-        ->times(5)
+        ->times(12)
+  
         ->create(); 
     }
 }

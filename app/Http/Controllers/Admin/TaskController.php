@@ -13,9 +13,27 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /** Permissies voor de Task controller */
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth'); 
+    //     $this->middleware('permission:index task', ['only' => ['index']]); 
+    //     $this->middleware('permission:show task', ['only' => ['show']]);
+    //     $this->middleware('permission:create task', ['only' => ['create', 'store']]);  
+    //     $this->middleware('permission:edit task', ['only' => ['edit', 'update']]);
+    //     $this->middleware('permission:delete task', ['only' => ['delete', 'destroy']]);  
+    // }
+
+
+
     public function index()
     {
         //
+        $tasks = Task::all();  
+
+        return view('admin.tasks.index', compact('tasks')); 
     }
 
     /**
@@ -48,6 +66,7 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         //
+        return  view('admin.tasks.show', compact('task')); 
     }
 
     /**

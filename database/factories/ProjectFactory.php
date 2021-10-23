@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProjectFactory extends Factory
@@ -24,7 +25,9 @@ class ProjectFactory extends Factory
         return [
 
             'name'=> $this->faker->name,
-            'description'=> $this->faker->name 
+            'description'=> $this->faker->name, 
+ 
+
 
 
         ];

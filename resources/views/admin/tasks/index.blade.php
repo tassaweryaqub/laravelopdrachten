@@ -27,11 +27,21 @@
                 Name
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Description
+                Begindate
               </th>
-
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                EndDate
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Username
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Projectname
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Activityname
+              </th>
          
-
      
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Modify
@@ -40,14 +50,14 @@
          
       
             <button class=" float-right mr-6 btn bg-green-500 hover:bg-green-400 text-white">
-              <a href="{{ route('projects.create')  }}">Create</a>
+              <a href="{{ route('tasks.create')  }}">Create</a>
             </button>
        
 
           </thead>
 
           <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ( $projects as $project)
+                    @foreach ( $tasks as $task)
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
@@ -56,26 +66,40 @@
                           Id
                     </div>
                     <div class="text-sm text-gray-500">
-                     {{ $project->id }}
+                     {{ $task->id }}
                     </div>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm text-gray-900">Naam</div>
-                <div class="text-sm text-gray-500">  {{ $project->name }}</div>
+                <div class="text-sm text-gray-500">  {{ $task->task }}</div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">Description</div>
-                <div class="text-sm text-gray-500">  {{ $project->description }}</div>
+                <div class="text-sm text-gray-900">begindate</div>
+                <div class="text-sm text-gray-500">  {{ $task->begindate }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Enddate</div>
+                <div class="text-sm text-gray-500">  {{ $task->enddate }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Name User</div>
+                <div class="text-sm text-gray-500">  {{ $task->user->name }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Projectname</div>
+                <div class="text-sm text-gray-500">  {{ $task->project->name }}</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Activity Name</div>
+                <div class="text-sm text-gray-500">  {{ $task->activity->name }}</div>
               </td>
      
-
-       
            
               <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  <a href="{{ route('projects.show', ['project'=> $project->id ]) }}">Show</a>   
+                  <a href="{{ route('tasks.show', ['task'=> $task->id ]) }}">Show</a>   
              
 
                 </span>
@@ -83,16 +107,18 @@
      
       
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                <a href="{{ route('projects.edit', ['project'=> $project->id ]) }}">Edit</a>
+                <a href="{{ route('tasks.edit', ['task'=> $task->id ]) }}">Edit</a>
               </td>
            
 
          
   
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <a href="{{ route('projects.delete', ['project'=> $project->id]) }}" class="text-red-600 hover:text-red-900">Delete</a>
+                <a href="{{ route('tasks.delete', ['task'=> $task->id]) }}" class="text-red-600 hover:text-red-900">Delete</a>
               </td>
       
+
+
             </tr>
 
 

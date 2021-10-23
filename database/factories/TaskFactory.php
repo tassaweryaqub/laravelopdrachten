@@ -28,8 +28,6 @@ class TaskFactory extends Factory
         return [
             //
             'task'=>$this->faker->name, 
-            // 'begindate' =>$this->faker->dateTime, 
-            // 'enddate' =>$this->faker->dateTime, 
             'project_id'=> Project::all()->random()->id, 
             'activity_id'=> Activity::all()->random()->id,
             'user_id'=> User::all()->random()->id, 

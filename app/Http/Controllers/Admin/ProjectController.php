@@ -32,7 +32,7 @@ class ProjectController extends Controller
     {
         //
 
-        $projects = Project::all();  
+        $projects = Project::all();   
 
         return view('admin.projects.index', compact('projects')); 
     }

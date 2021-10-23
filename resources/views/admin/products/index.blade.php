@@ -26,8 +26,13 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 CategoryName
               </th>
+
+              
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Laatste Prijs €
+              </th>
        
-       
+      
              
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Modify
@@ -63,6 +68,11 @@
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm text-gray-900">Category Naam</div>
                 <div class="text-sm text-gray-500">  {{ $product->category->name }}</div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">Laatste Prijs</div>
+                <div class="text-sm text-gray-500">  {{ $product->latest_price->price }}</div>
               </td>
               
               <td class="px-6 py-4 whitespace-nowrap">

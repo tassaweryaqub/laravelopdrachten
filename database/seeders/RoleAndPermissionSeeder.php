@@ -18,7 +18,15 @@ class RoleAndPermissionSeeder extends Seeder
         // permissies toevoegen voor rollen 
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions(); 
 
-        // CRUD VOOR PROJECTS !!!!!!
+        // // CRUD VOOR PROJECTS !!!!!!
+
+        // Permission::create(['name' => 'index project']); 
+        // Permission::create(['name' => 'show project']); 
+        // Permission::create(['name' => 'create project']); 
+        // Permission::create(['name' => 'edit project']); 
+        // Permission::create(['name' => 'delete project']); 
+
+// CRUD voor TASKS
 
         Permission::create(['name' => 'index project']); 
         Permission::create(['name' => 'show project']); 
@@ -27,23 +35,47 @@ class RoleAndPermissionSeeder extends Seeder
         Permission::create(['name' => 'delete project']); 
 
 
-        // roles student 
+
+
+        
+        // roles student  project
 
         $student = Role::create(['name' => 'student'])
         ->givePermissionTo(['index project','show project','create project','edit project' ]); 
  
 
-        // roles teacher
+        // roles teacher project
 
         $teacher = Role::create(['name' => 'teacher'])
         ->givePermissionTo(['index project','show project','create project','edit project','delete project' ]); 
 
 
 
-        // admin role 
+        // admin role  project
 
         $admin = Role::create([ 'name' => 'admin'])
         ->givePermissionTo([Permission::all()]); 
+
+
+
+
+        // // roles student  project
+
+        // $student = Role::create(['name' => 'student'])
+        // ->givePermissionTo(['index project','show project','create project','edit project' ]); 
+ 
+
+        // // roles teacher project
+
+        // $teacher = Role::create(['name' => 'teacher'])
+        // ->givePermissionTo(['index project','show project','create project','edit project','delete project' ]); 
+
+
+
+        // // admin role  project
+
+        // $admin = Role::create([ 'name' => 'admin'])
+        // ->givePermissionTo([Permission::all()]); 
 
 
 
