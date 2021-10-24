@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\TaskStoreRequest;
 use App\Models\Task;
+use App\Models\Project; 
+use App\Models\Activity; 
+use App\Models\User; 
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -44,6 +48,15 @@ class TaskController extends Controller
     public function create()
     {
         //
+        $projects = Project::all(); 
+        return view ('admin.projects.create', compact('projects')); 
+
+        $activities = Activity::all(); 
+        return view ('admin.activities.create', compact('activities')); 
+
+        
+        $users = User::all(); 
+        return view ('admin.users.create', compact('users')); 
     }
 
     /**
@@ -52,9 +65,22 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskStoreRequest $request)
     {
         //
+
+        $task = new Task(); 
+        $task->name = $request->name; 
+        $task->begindate = $request->begindate; 
+        $task->enddate = $request->enddate; 
+        $task->project_id = $request->project_id; 
+        $task->activity_id = $request->activity_id; 
+        $task->user_id = $request->user_id; 
+        $task->save(); 
+
+            return redirect()->route('tasks.index')->with('status', 'Task Toegevoegd'); 
+
+
     }
 
     /**
