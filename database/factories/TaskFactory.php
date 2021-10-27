@@ -27,6 +27,7 @@ class TaskFactory extends Factory
     {
         return [
             //
+
             'task'=>$this->faker->name, 
             'project_id'=> Project::all()->random()->id, 
             'activity_id'=> Activity::all()->random()->id,

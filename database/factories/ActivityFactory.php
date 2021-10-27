@@ -24,7 +24,8 @@ class ActivityFactory extends Factory
         return [
             //
             'name'=>$this->faker->name, 
-            
+        
+
         ];
     }
 }

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Task;
 use Illuminate\Database\Seeder;
 
+
+
 class TaskSeeder extends Seeder
 {
     /**
@@ -17,8 +19,9 @@ class TaskSeeder extends Seeder
         //
 
         Task::factory()
-        ->times(12)
-  
+        ->times(11)
         ->create(); 
+
+
     }
 }

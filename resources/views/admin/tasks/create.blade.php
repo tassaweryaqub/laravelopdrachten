@@ -24,10 +24,11 @@
         </label>
         <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " name="user_id" id="user_id">
             @foreach ($users as $user)  
-            <option value="{{ $user->id }}">{{ $user->name }}
-                @if (old('user_id') == $user_id)
+            <option value="{{ $user->id }}"
+                @if (old('user_id') == $user->id)
                 selected                 
                 @endif
+                >{{ $user->name }}
             </option>    
             @endforeach     
         </select>
@@ -40,10 +41,11 @@
         </label>
         <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " name="project_id" id="project_id">
             @foreach ($projects as $project)  
-            <option value="{{ $project->id }}">{{ $project->name }}
-                @if (old('project_id') == $project_id)
+            <option value="{{ $project->id }}"
+                @if (old('project_id') == $project->id)
                 selected                 
                 @endif
+                >{{ $project->name }}
             </option>    
             @endforeach     
         </select>
@@ -56,10 +58,11 @@
         </label>
         <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " name="activity_id" id="activity_id">
             @foreach ($activities as $activity)  
-            <option value="{{ $activity->id }}">{{ $activity->name }}
-                @if (old('activity_id') == $activity_id)
+            <option value="{{ $activity->id }}"
+                @if (old('activity_id') == $activity->id)
                 selected                 
                 @endif
+                >{{ $activity->name }}
             </option>    
             @endforeach     
         </select>
@@ -70,7 +73,7 @@
           Task Name
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('task') border-red-500 @enderror"
-           name="task" id="task" value="{{ old('task') }}"  type="text" placeholder="Task Name" required >
+           name="task" id="task" value="{{ old('task') }}"  type="text" placeholder="Task Name"  >
       </div>
 
       <div class="w-full md:w-auto px-3  mb-6 md:mb-0">

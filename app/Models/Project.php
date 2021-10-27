@@ -17,6 +17,12 @@ class Project extends Model
         return $this->hasMany(Task::class); 
     }
 
-  
+    /*
+    * project heeft meerdere taken   
+    */ 
+    public function latest_task()
+    {
+        return $this->hasOne(Task::class)->orderBy('task', 'desc'); 
+    }
     
 }

@@ -25,10 +25,11 @@
         <select class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline " name="category_id" id="category_id">
             @foreach ($categories as $category)  
       
-            <option value="{{ $category->id }}">{{ $category->name }}
-                @if (old('category_id') == $category_id)
+            <option value="{{ $category->id }}"
+                @if (old('category_id') == $category->id)
                 selected                 
                 @endif
+                >{{ $category->name }}
             </option>    
             @endforeach     
         </select>

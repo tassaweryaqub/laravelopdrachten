@@ -85,11 +85,11 @@
                 <a href="{{ route('products.edit', ['product'=> $product->id ]) }}">Edit</a>
               </td>
 
-              @can('delete product')
+              {{-- @can('delete product') --}}
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <a href="{{ route('products.delete', ['product'=> $product->id]) }}" class="text-red-600 hover:text-red-900">Delete</a>
               </td>
-              @endcan
+              {{-- @endcan --}}
             </tr>
 
 

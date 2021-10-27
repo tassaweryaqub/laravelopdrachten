@@ -24,10 +24,9 @@ class TaskStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'task' => 'required|min:10|max:200|unique:tasks', 
+
+            'task' => 'required|string|min:10|max:200|unique:tasks', 
             'begindate' => 'required', 
-            'enddate' => 'optional',  
             'project_id|required|integer|unique:projects', 
             'activity_id|required|integer|unique:activities', 
 

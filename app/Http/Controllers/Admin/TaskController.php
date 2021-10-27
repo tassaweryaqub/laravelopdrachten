@@ -34,8 +34,8 @@ class TaskController extends Controller
 
     public function index()
     {
-        //
-        $tasks = Task::all();  
+        //*haal alle gegevens op van project en gebruik de nieuwe methode task 
+        $tasks = Task::with('project', 'latest_task')->get();    
 
         return view('admin.tasks.index', compact('tasks')); 
     }
@@ -48,15 +48,17 @@ class TaskController extends Controller
     public function create()
     {
         //
+        $users = User::all(); 
+
         $projects = Project::all(); 
-        return view ('admin.projects.create', compact('projects')); 
+        // return view ('admin.projects.create', compact('projects')); 
 
         $activities = Activity::all(); 
-        return view ('admin.activities.create', compact('activities')); 
+        return view ('admin.tasks.create', compact('activities', 'users', 'projects')); 
 
         
-        $users = User::all(); 
-        return view ('admin.users.create', compact('users')); 
+   
+        // return view ('admin.users.create', compact('users', 'activities', 'projects')); 
     }
 
     /**
@@ -70,7 +72,7 @@ class TaskController extends Controller
         //
 
         $task = new Task(); 
-        $task->name = $request->name; 
+        $task->task = $request->task; 
         $task->begindate = $request->begindate; 
         $task->enddate = $request->enddate; 
         $task->project_id = $request->project_id; 
@@ -78,7 +80,7 @@ class TaskController extends Controller
         $task->user_id = $request->user_id; 
         $task->save(); 
 
-            return redirect()->route('tasks.index')->with('status', 'Task Toegevoegd'); 
+        return redirect()->route('tasks.index')->with('status', 'Succesvol Task Aangemaakt!'); 
 
 
     }

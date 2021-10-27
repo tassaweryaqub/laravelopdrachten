@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        // deze get methode kan je alleen  gebruiken als je een belongsTo relatie hebt LET OP niet bij HASMANY ! 
         $products = Product::with('category')->get(); 
         return view('admin.products.index', compact('products'));
     }

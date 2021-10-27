@@ -16,6 +16,11 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->char('name', 50); 
+            // $table->char('Todo', 1); 
+            // $table->char('Doing', 2); 
+            // $table->char('Testing', 3); 
+            // $table->char('Verify', 4);
+            // $table->char('Done', 5);  
       
 
 
