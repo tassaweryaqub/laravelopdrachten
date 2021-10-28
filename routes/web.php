@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get( '/', [CategoryController::class, 'index' ]); 
+
+
 
 //middle ware wrappen around the project controller met permissies voor teacher en admin om te verwijderen
 Route ::group(['middleware' => ['role:|student|teacher|admin']], function(){
@@ -52,7 +53,7 @@ Route::resource('/admin/categories', CategoryController::class);
 
 Route::resource('/admin/tasks', TaskController::class); 
 
-
+Route::get( '/', [TaskController::class, 'index' ]); 
 
 });
 

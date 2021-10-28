@@ -25,13 +25,10 @@ class TaskStoreRequest extends FormRequest
     {
         return [
 
-            'task' => 'required|string|min:10|max:200|unique:tasks', 
+            'task' => 'required|min:10|max:200|unique:tasks', 
             'begindate' => 'required', 
-            'project_id|required|integer|unique:projects', 
-            'activity_id|required|integer|unique:activities', 
-
-      
-
+            'project_id' => 'required|integer',  
+            'activity_id' => 'required|integer'
 
         ];
     }

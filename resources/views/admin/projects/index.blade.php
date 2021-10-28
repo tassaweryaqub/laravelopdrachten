@@ -70,10 +70,10 @@
                 <div class="text-sm text-gray-500">  {{ $project->description }}</div>
               </td>
 
-              <td class="px-6 py-4 whitespace-nowrap">
+              {{-- <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm text-gray-900">latest task</div>
                 <div class="text-sm text-gray-500">  {{ $project->latest_task->task}}</div>
-              </td>
+              </td> --}}
               
      
 

@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
             RoleAndPermissionSeeder::class,
             UserSeeder::class, 
             CategorySeeder::class, 
-            ProjectSeeder::class, 
             ProductSeeder::class,
             PriceSeeder::class,
             ActivitySeeder::class, 
+            ProjectSeeder::class, 
             TaskSeeder::class
       
    

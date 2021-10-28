@@ -9,6 +9,8 @@ class Task extends Model
 {
     use HasFactory;
 
+
+
     /* een taak behoort tot een project*/ 
     public function project()
     {

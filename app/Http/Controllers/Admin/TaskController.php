@@ -35,7 +35,7 @@ class TaskController extends Controller
     public function index()
     {
         //*haal alle gegevens op van project en gebruik de nieuwe methode task 
-        $tasks = Task::with('project', 'latest_task')->get();    
+        $tasks = Task::all();   
 
         return view('admin.tasks.index', compact('tasks')); 
     }

@@ -20,9 +20,9 @@ class Project extends Model
     /*
     * project heeft meerdere taken   
     */ 
-    public function latest_task()
-    {
-        return $this->hasOne(Task::class)->orderBy('task', 'desc'); 
-    }
+    // public function latest_task()
+    // {
+    //     return $this->hasOne(Task::class)->orderBy('task', 'desc'); 
+    // }
     
 }
