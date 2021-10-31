@@ -24,7 +24,7 @@
         </label>
         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white @error('name')
       border-red-500 @enderror"
-             name="name" id="name"  type="text"  value="{{ old('description') }}" placeholder="Jane" required >
+             name="name" id="name"  type="text"  value="{{ old('description') }}" placeholder="Jane" required >   //  Haalt de oude data op  
 
       </div>
       <div class="w-full md:w-1/2 px-3">

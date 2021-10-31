@@ -71,6 +71,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+
+        return view('admin.products.show', compact('product')); 
     }
 
     /**
@@ -82,6 +84,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::all(); 
+        return view('admin.products.edit', compact('product', 'categories')); 
+
     }
 
     /**
