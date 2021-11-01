@@ -141,6 +141,19 @@ class TaskController extends Controller
 
     }
 
+    public function delete(Task $task)
+    { //! Wanneer je gebruik maakt van select van USER / PROJECT / ACTIVITY moet je de classes ook hierin gebruiken! 
+        $users = User::all(); 
+
+        $projects = Project::all(); 
+        
+
+        $activities = Activity::all(); 
+        return view ('admin.tasks.delete', compact('task','activities', 'users', 'projects')); 
+
+        return view ('admin.tasks.delete', compact('task')); 
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -150,5 +163,7 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         //
+        $task->delete();
+        return redirect()->route('tasks.index')->with('status', 'Task Verwijderd !'); 
     }
 }
