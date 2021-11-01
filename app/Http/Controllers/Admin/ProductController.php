@@ -8,6 +8,7 @@ use  App\Models\Price;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use Carbon\Carbon;
 
 class ProductController extends Controller
@@ -83,7 +84,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        //TODO  dropdown voor edit producten waar je ALLE categorieen meestuurt 
         $categories = Category::all(); 
         return view('admin.products.edit', compact('product', 'categories')); 
 
@@ -96,9 +97,25 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductUpdateRequest $request, Product $product)
     {
-        //
+        // TODO de update zorgt ervoor dat er een nieuwe prijs in wordt gezet (dus niet de oude waarde)
+
+        $product ->name =  $request->name; 
+        $product->description = $request->description; 
+        $product->category_id  = $request->category_id; 
+        $product->save(); 
+
+        if($product->latest_price->price != $request->price) 
+
+        $price = new Price(); 
+        $price->price = $request->price; 
+        $price->effdate = Carbon::now(); 
+        $price->product_id = $product->id; 
+        $price->save(); 
+
+        return redirect()->route('products.index')->with('status', 'Product succesvol Geupdate!'); 
+
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TaskStoreRequest;
+use App\Http\Requests\TaskUpdateRequest;
 use App\Models\Task;
 use App\Models\Project; 
 use App\Models\Activity; 
@@ -106,6 +107,15 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         //
+        $users = User::all(); 
+
+        $projects = Project::all(); 
+        // return view ('admin.projects.create', compact('projects')); 
+
+        $activities = Activity::all(); 
+        return view ('admin.tasks.edit', compact('task','activities', 'users', 'projects')); 
+
+
     }
 
     /**
@@ -115,9 +125,20 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(TaskUpdateRequest $request, Task $task)
     {
         //
+        $task->task = $request->task; 
+        $task->begindate = $request->begindate; 
+        $task->enddate = $request->enddate; 
+        $task->project_id = $request->project_id; 
+        $task->activity_id = $request->activity_id; 
+        $task->user_id = $request->user_id; 
+        $task->save(); 
+
+        return redirect()->route('tasks.index')->with('status', 'Task Geupdate !'); 
+
+
     }
 
     /**

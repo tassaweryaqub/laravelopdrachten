@@ -15,6 +15,8 @@ class ActivitySeeder extends Seeder
      *
      * @return void
      */
+
+     //*TODO de seeder vullen met de ACTIVITY factory gebruik maken van de name
     public function run()
     {
     
